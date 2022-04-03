@@ -16,6 +16,8 @@ import Expenses2 from "./routes/Expenses2";
 import AuthRoot from "./routes/Auth/Root";
 import LazyLoadingRoot from "./routes/LazyLoading/Root";
 import RouteObjects from "./routes/RouteObjects";
+import UseOutletContext from "./routes/UseOutletContext";
+import Helper_createRoutesFromChildren from "./routes/Helper_createRoutesFromChildren";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -43,6 +45,11 @@ ReactDOM.render(
 
           <Route path="/route-objects/*" element={<RouteObjects />} />
 
+          <Route path="/use-outlet-context/*" element={<UseOutletContext />} />
+          <Route
+            path="/createRoutesFromChildren/*"
+            element={<Helper_createRoutesFromChildren />}
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

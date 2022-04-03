@@ -1,8 +1,9 @@
 import { useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigationType } from "react-router-dom";
 
 export default function TrackingLocationChanged() {
   const location = useLocation();
+  const navigationType = useNavigationType();
 
   useLayoutEffect(() => {
     function locationChanged() {
@@ -10,6 +11,10 @@ export default function TrackingLocationChanged() {
     }
 
     locationChanged();
+  }, [location]);
+
+  useLayoutEffect(() => {
+    console.log("navigationType", navigationType);
   }, [location]);
 
   return null;

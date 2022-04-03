@@ -1,13 +1,14 @@
-import { createBrowserHistory } from "history";
 import { useLayoutEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
-import TrackingLocationChanged from "./components/TrackingLocationChanged";
 import "./App.css";
+import TrackingLocationChanged from "./components/TrackingLocationChanged";
 
 function App() {
   console.log("render App");
 
   useLayoutEffect(() => {
+    console.log("document.defaultView", document.defaultView);
+
     window.addEventListener("popstate", () => {
       console.log('window.addEventListener("popstate")::URL changed');
     });
@@ -28,6 +29,11 @@ function App() {
         <Link to="/auth">Auth example</Link> |{" "}
         <Link to="/lazy-loading">Lazy Loading example</Link> |{" "}
         <Link to="/route-objects">Route Objects example</Link> |{" "}
+        <Link to="/use-outlet-context">useOutletContext</Link> |{" "}
+        <Link to="/createRoutesFromChildren">
+          createRoutesFromChildren helper
+        </Link>{" "}
+        |{" "}
       </nav>
       <Outlet />
       <TrackingLocationChanged />
